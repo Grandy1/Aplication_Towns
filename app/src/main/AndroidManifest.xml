@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Application_Towns">
         <activity
+            android:name=".NavigationDrawerActivity"
+            android:exported="true"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/Theme.Application_Towns.NoActionBar" />
+        <activity
             android:name=".Welcome_Activity"
             android:exported="true">
             <intent-filter>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emails">
+        <item>qwerty0@q.q</item>
+        <item>qwerty1@q.q</item>
+        <item>qwerty2@q.q</item>
+        <item>qwerty3@q.q</item>
+        <item>qwerty4@q.q</item>
+    </string-array>
+</resources>
