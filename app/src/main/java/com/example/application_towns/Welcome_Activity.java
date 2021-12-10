@@ -43,8 +43,13 @@ public class Welcome_Activity extends AppCompatActivity {
                     userEmailField.setTextColor(getResources().getColor(R.color.red));
                     userPasswordField.setTextColor(getResources().getColor(R.color.red));
                 }
-                else
+                else {
+                    userEmailField.setTextColor(getResources().getColor(R.color.black));
+                    userPasswordField.setTextColor(getResources().getColor(R.color.black));
+                    userEmailField.setText("");
+                    userPasswordField.setText("");
                     startActivity(intent);
+                }
             }
         });
 
