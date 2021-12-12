@@ -4,8 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/layout-land/activity_welcome.xml" value="0.22" />
+        <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/layout/activity_navigation_drawer.xml" value="0.30512820512820515" />
         <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/layout/activity_welcome.xml" value="0.25" />
+        <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/layout/app_bar_navigation_drawer.xml" value="0.1" />
         <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/layout/content_navigation_drawer.xml" value="0.16296296296296298" />
+        <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/layout/fragment_gallery.xml" value="0.30512820512820515" />
+        <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/layout/fragment_home.xml" value="0.30512820512820515" />
+        <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/layout/fragment_selected_town.xml" value="0.17136752136752137" />
+        <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/layout/fragment_slideshow.xml" value="0.30512820512820515" />
+        <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/layout/fragment_town_list.xml" value="0.2" />
+        <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/layout/nav_header_navigation_drawer.xml" value="0.30512820512820515" />
+        <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/layout/recycler_view_item.xml" value="0.25" />
+        <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/menu/activity_main_drawer.xml" value="0.30512820512820515" />
+        <entry key="..\:/Users/Trimster/AndroidStudioProjects/Application_Towns/app/src/main/res/menu/navigation_drawer.xml" value="0.30512820512820515" />
       </map>
     </option>
   </component>
@@ -14,5 +25,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.30512820512820515" />
+      </ProjectState>
+    </option>
   </component>
 </project>
