@@ -23,7 +23,7 @@ public class TownListFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         RecyclerView recyclerView = getView().findViewById(R.id.recycler_view);
         String[] data = getResources().getStringArray(R.array.towns);
         recyclerView.setAdapter(new TownListAdapter(data));

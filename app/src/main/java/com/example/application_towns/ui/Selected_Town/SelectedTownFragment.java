@@ -25,7 +25,7 @@ public class SelectedTownFragment extends Fragment {
 
     @Override
     public void onViewCreated (View view, @Nullable Bundle savedInstanceState) {
-        TextView textView = view.findViewById(R.id.townText);
+        TextView textView = view.findViewById(R.id.towns_list);
         mainText = getArguments() == null ? mainText : getArguments().getString("town_argument");
         textView.setText(mainText);
     }
