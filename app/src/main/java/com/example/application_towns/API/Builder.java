@@ -20,36 +20,6 @@ public class Builder {
 
     public void init() {
 
-        /*
-        String baseurl = "https://raw.githubusercontent.com/Lpirskaya/JsonLab/master/City.json";
-        URL url = null;
-        try {
-            url = new URL(baseurl);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-        HttpURLConnection conn = null;
-        try {
-            conn = (HttpURLConnection) url.openConnection();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            if (conn.getResponseCode() == HttpURLConnection.HTTP_OK)
-            {
-                StringBuilder response = new StringBuilder();
-                BufferedReader input = new BufferedReader(new InputStreamReader
-                        (conn.getInputStream()), 8192);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        */
-        //------------------------------------------------------------------------------
-
         String baseUrl = "https://raw.githubusercontent.com/Lpirskaya/JsonLab/master/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
@@ -62,12 +32,20 @@ public class Builder {
 
         townsList.enqueue(new Callback<List<TownDescription>>() {
             @Override
-            public void onResponse(Call<List<TownDescription>> call, Response<List<TownDescription>> response) {
-                List<TownDescription> townDescriptionList = response.body();
-                TownDescription townDescription = townDescriptionList.get(0);
-
-                Log.i("description", response.body().toString());
-                Log.i("language", townDescription.getLanguage());
+            public void onResponse(Call<List<TownDescription>> call,
+                                   Response<List<TownDescription>> response) {
+                if (response.isSuccessful()) {
+                    List<TownDescription> townDescriptionList = response.body();
+                    int i = 0;
+                    for (TownDescription townDescription : townDescriptionList) {
+                        Log.i("id " + i++, "Population: " + townDescription.getPopulation() +
+                                "; Country: " + townDescription.getCountry() +
+                                "; Name: " + townDescription.getName() +
+                                "; language: " + townDescription.getLanguage() + ";");
+                    }
+                } else {
+                    Log.i("Response code", "" + response.code());
+                }
             }
 
             @Override
