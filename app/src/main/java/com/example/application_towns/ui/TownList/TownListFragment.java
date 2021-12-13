@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.application_towns.API.Builder;
 import com.example.application_towns.R;
 import com.example.application_towns.adapter.TownListAdapter;
 
@@ -19,6 +20,8 @@ public class TownListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable
                              ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Builder builder = new Builder();
+        builder.init();
         return inflater.inflate(R.layout.fragment_town_list, container, false);
     }
 
