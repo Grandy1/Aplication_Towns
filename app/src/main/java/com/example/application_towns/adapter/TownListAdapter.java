@@ -10,9 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.application_towns.R;
 
+import java.util.ArrayList;
+import java.util.List;
+import com.example.application_towns.adapter.TownListAdapter;
+
+
 public class TownListAdapter extends RecyclerView.Adapter<TownListAdapter.RecyclerViewHolder> {
 
-    String[] towns;
+    List<String> towns;
 
     public static class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
@@ -28,7 +33,7 @@ public class TownListAdapter extends RecyclerView.Adapter<TownListAdapter.Recycl
         }
     }
 
-    public TownListAdapter(String[] TownDataset) {
+    public TownListAdapter(List<String> TownDataset) {
         towns = TownDataset;
     }
 
@@ -41,11 +46,11 @@ public class TownListAdapter extends RecyclerView.Adapter<TownListAdapter.Recycl
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder viewHolder, final int position) {
-        viewHolder.getItemTextView().setText(towns[position]);
+        viewHolder.getItemTextView().setText(towns.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return towns.length;
+        return towns.size();
     }
 }
