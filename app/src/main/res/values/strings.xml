@@ -14,4 +14,9 @@
     <string name="menu_home">Town List</string>
     <string name="menu_gallery">Selected town</string>
     <string name="textview">TextView</string>
+
+    <string name="title_country_sel_t">Country:</string>
+    <string name="title_population_sel_t">Population:</string>
+    <string name="title_Language_sel_t">National Language:</string>
+    <string name="title_population_unit_sel_t">чел.</string>
 </resources>

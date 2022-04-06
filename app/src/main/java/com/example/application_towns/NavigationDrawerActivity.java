@@ -5,6 +5,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.application_towns.adapter.TownListAdapter;
+import com.example.application_towns.ui.TownList.TownListFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -15,6 +17,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.application_towns.databinding.ActivityNavigationDrawerBinding;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class NavigationDrawerActivity extends AppCompatActivity {
 
@@ -45,7 +51,20 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     public void onNameClick(View view) {
         TextView textView = view.findViewById(R.id.townText);
         Bundle bundle = new Bundle();
-        bundle.putString("town_argument", textView.getText().toString());
+        String townClass = "null";
+        try {
+            JSONArray jsonArray = new JSONArray(TownListFragment.getResponse().toString());
+            for (int i = 0; i < 21; i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                if (jsonObject.getString("Name").equals(textView.getText().toString())) {
+                    townClass = jsonObject.toString();
+                    break;
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        bundle.putString("town_array", townClass);
         Navigation.findNavController(view).navigate(R.id.action_nav_towns_list_to_nav_selected_town, bundle);
     }
 
