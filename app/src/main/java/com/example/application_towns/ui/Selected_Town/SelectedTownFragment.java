@@ -1,5 +1,6 @@
 package com.example.application_towns.ui.Selected_Town;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ public class SelectedTownFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_selected_town, container, false);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onViewCreated (View view, @Nullable Bundle savedInstanceState) {
         TextView townView = view.findViewById(R.id.town_sel_t);

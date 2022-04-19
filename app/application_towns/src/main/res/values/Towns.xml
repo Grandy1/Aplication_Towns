@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="towns">
+        <item>Moscow</item>
+        <item>Kiev</item>
+        <item>London</item>
+        <item>Paris</item>
+        <item>New York</item>
+        <item>Dubai</item>
+        <item>Tokyo</item>
+        <item>Singapore</item>
+        <item>Los Angeles</item>
+        <item>Barcelona</item>
+        <item>Madrid</item>
+        <item>Rome</item>
+        <item>Doha</item>
+        <item>Chicago</item>
+        <item>Abu Dhabi</item>
+        <item>San Francisco</item>
+        <item>Amsterdam</item>
+        <item>St. Petersburg</item>
+        <item>Toronto</item>
+        <item>Sydney</item>
+        <item>Berlin</item>
+        <item>Las Vegas</item>
+        <item>Washington</item>
+        <item>Istanbul</item>
+        <item>Vienna</item>
+        <item>Beijing</item>
+        <item>Beirut</item>
+        <item>Bergen</item>
+        <item>London</item>
+        <item>Budapest</item>
+        <item>Buenos Aires</item>
+        <item>Cape Town</item>
+        <item>Cartagena</item>
+        <item>Florence</item>
+        <item>Havana</item>
+        <item>Hanoi</item>
+        <item>Jaipur</item>
+        <item>Jerusalem</item>
+        <item>Kyoto</item>
+        <item>Porto</item>
+        <item>Prague</item>
+        <item>Queenstown</item>
+        <item>Rio de Janeiro</item>
+        <item>Seoul</item>
+        <item>Tallinn</item>
+        <item>Venice</item>
+        <item>Zurich</item>
+        <item>Miami</item>
+        <item>Washington</item>
+        <item>New Mexico</item>
+    </string-array>
+</resources>

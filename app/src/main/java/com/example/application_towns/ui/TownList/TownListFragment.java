@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.application_towns.R;
 import com.example.application_towns.adapter.TownListAdapter;
@@ -28,73 +29,59 @@ import java.net.URL;
 
 public class TownListFragment extends Fragment {
 
-    String[] towns_list = new String[21];
-    String town;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    static StringBuilder response = new StringBuilder();
 
     public static StringBuilder getResponse() {
         return response;
     }
 
-    static StringBuilder response = new StringBuilder();
-
-    Thread thread = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            String url_text = "https://raw.githubusercontent.com/Lpirskaya/JsonLab/master/City.json";
-            URL url = null;
-            try {
-                url = new URL(url_text);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-            HttpURLConnection conn = null;
-            try {
-                assert url != null;
-                conn = (HttpURLConnection) url.openConnection();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                assert conn != null;
-                if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                    BufferedReader input = new BufferedReader(new InputStreamReader(conn.getInputStream()), 8192);
-                    String line;
-
-                    while ((line = input.readLine()) != null) {
-                        response.append(line);
-                    }
-                    input.close();
+    Thread thread = new Thread(() -> {
+        String url_text = "https://raw.githubusercontent.com/Lpirskaya/JsonLab/master/City.json";
+        URL url;
+        try {
+            url = new URL(url_text);
+            HttpURLConnection conn;
+            conn = (HttpURLConnection) url.openConnection();
+            assert conn != null;
+            if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                BufferedReader input = new BufferedReader(new InputStreamReader(conn.getInputStream()), 8192);
+                String line;
+                while ((line = input.readLine()) != null) {
+                    response.append(line);
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+                input.close();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     });
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable
                              ViewGroup container, @Nullable Bundle savedInstanceState) {
         thread.start();
-        JSONObject jsonObject;
-        try {
-            JSONArray jsonArray = new JSONArray(response.toString());
-            for (int i = 0; i < jsonArray.length(); i++) {
-                jsonObject = jsonArray.getJSONObject(i);
-                town = jsonObject.getString("Name");
-                towns_list[i] = town;
-            }
-            int i;
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
         return inflater.inflate(R.layout.fragment_town_list, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        JSONObject jsonObject;
+        String[] towns_list = null;
+        try {
+            JSONArray jsonArray = new JSONArray(response.toString());
+            towns_list = new String[jsonArray.length()];
+            for (int i = 0; i < jsonArray.length(); i++) {
+                jsonObject = jsonArray.getJSONObject(i);
+                towns_list[i] = jsonObject.getString("Name");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        swipeRefreshLayout = getView().findViewById(R.id.SwipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(() -> swipeRefreshLayout.setRefreshing(false));
         RecyclerView recyclerView = getView().findViewById(R.id.recycler_view);
-        TownListAdapter townListAdapter = new TownListAdapter(towns_list);
-        recyclerView.setAdapter(townListAdapter);
+        recyclerView.setAdapter(new TownListAdapter(towns_list));
     }
 
     @Override

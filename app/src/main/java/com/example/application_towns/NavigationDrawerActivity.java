@@ -49,14 +49,14 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     }
 
     public void onNameClick(View view) {
-        TextView textView = view.findViewById(R.id.townText);
+        TextView townText = view.findViewById(R.id.townText);
         Bundle bundle = new Bundle();
         String townClass = "null";
         try {
             JSONArray jsonArray = new JSONArray(TownListFragment.getResponse().toString());
-            for (int i = 0; i < 21; i++) {
+            for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                if (jsonObject.getString("Name").equals(textView.getText().toString())) {
+                if (jsonObject.getString("Name").equals(townText.getText().toString())) {
                     townClass = jsonObject.toString();
                     break;
                 }
